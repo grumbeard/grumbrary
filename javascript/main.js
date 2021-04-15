@@ -1,28 +1,27 @@
 let myLibrary = [];
 
-let book1 = {
-  title: "It's Not You, It's the Soil",
-  author: "Jermi, Nate",
-  pages: 600,
-  read: false
-}
+let book1 = Object.create(Book.prototype);
+book1.title = "It's Not You, It's the Soil";
+book1.author = "Jermi, Nate";
+book1.pages = 600;
+book1.read = false;
 
-let book2 = {
-  title: "The Square Orange Curtain",
-  author: "Ghravati, Pooles",
-  pages: 51,
-  read: false
-}
+let book2 = Object.create(Book.prototype);
+book2.title = "The Square Orange Curtain";
+book2.author = "Ghravati, Pooles";
+book2.pages = 51;
+book2.read = false;
 
-let book3 = {
-  title: "Why, The Rain Itches",
-  author: "Multiple Authors",
-  pages: 5510,
-  read: true
-}
+let book3 = Object.create(Book.prototype);
+book3.title = "Why, The Rain Itches";
+book3.author = "Multiple Authors";
+book3.pages = 5510;
+book3.read = true;
+
 
 myLibrary.push(book1);
 myLibrary.push(book2);
+addBookToLibrary(book3);
 
 function Book(title, author, pages, read) {
   // Book constructor
@@ -32,7 +31,7 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-Book.prototype.toggleRead = () => {
+Book.prototype.toggleRead = function () {
   this.read = !this.read;
 }
 
@@ -67,6 +66,7 @@ function updateDisplay() {
     let read = document.createElement("input");
     read.classList.add("slider");
     read.setAttribute("type", "checkbox");
+    read.setAttribute("name", "read");
     if (book.read) read.setAttribute("checked", true);
     bookCard.appendChild(read);
 
@@ -75,7 +75,6 @@ function updateDisplay() {
   });
 }
 
-addBookToLibrary(book3);
 
 // ADD BOOK BUTTON FUNCTIONALITY
 const addButton = document.getElementById("add-btn");
@@ -102,3 +101,15 @@ function handleFormSubmit(e) {
   // Add new book to library
   addBookToLibrary(book);
 }
+
+// TOGGLE READ FUNCTIONALITY
+const readSliders = document.querySelectorAll(".book > .slider");
+readSliders.forEach(slider => {
+  slider.addEventListener("change", handleReadSliderChange);
+});
+
+function handleReadSliderChange(e) {
+  let bookIndex = e.target.parentNode.dataset.index;
+  myLibrary[bookIndex].toggleRead();
+}
+
