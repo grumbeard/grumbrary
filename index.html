@@ -9,10 +9,29 @@
 <body>
   <header></header>
   <main>
+    <div id="form-container">
+      <form id="add-form" class="hide" action="#">
+        <label for="title">Title
+          <input type="text" name="title" required>
+        </label>
+        <label for="title">Author
+          <input type="text" name="author" required>
+        </label>
+        <label for="title">Pages
+          <input type="number" name="pages" min="1">
+        </label>
+        <label for="title">Read
+          <input type="checkbox" name="read">
+          <span class="slider"></span>
+        </label>
+        <input type="submit" value="Add">
+      </form>
+    </div>
     <div id="books-container">
       <ul id="books">
       </ul>
     </div>
+    <div id="add-btn">+</div>
   </main>
   <footer></footer>
   <script src="javascript/main.js"></script>

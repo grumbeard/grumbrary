@@ -49,11 +49,12 @@ function removeBookFromLibrary(book) {
 function updateDisplay() {
   const books = document.getElementById("books");
   let index = 0;
+  books.innerHTML = "";
 
   // Re-rendering of library books allows index dataset to be refreshed
   myLibrary.forEach(book => {
     let bookCard = document.createElement("div");
-    bookCard.className = "book";
+    bookCard.classList.add("book");
     bookCard.setAttribute("data-index", index);
 
     // Add book details
@@ -64,13 +65,40 @@ function updateDisplay() {
 
     // Create read toggle
     let read = document.createElement("input");
+    read.classList.add("slider");
     read.setAttribute("type", "checkbox");
     if (book.read) read.setAttribute("checked", true);
     bookCard.appendChild(read);
 
-    books.appendChild(bookCard);
+    books.prepend(bookCard);
     index++;
   });
 }
 
 addBookToLibrary(book3);
+
+// ADD BOOK BUTTON FUNCTIONALITY
+const addButton = document.getElementById("add-btn");
+addButton.addEventListener("click", toggleDisplayForm);
+
+const form = document.getElementById("add-form");
+form.addEventListener("submit", handleFormSubmit);
+
+function toggleDisplayForm() {
+  // Display form
+  form.classList.toggle("hide");
+}
+
+// Extract form data and add book to library
+function handleFormSubmit(e) {
+  e.preventDefault();
+  let book = Object.create(Book.prototype);
+
+  book.title = e.target.elements['title'].value;
+  book.author = e.target.elements['author'].value;
+  book.pages = e.target.elements['pages'].value;
+  book.read = e.target.elements['read'].checked;
+
+  // Add new book to library
+  addBookToLibrary(book);
+}
