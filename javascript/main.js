@@ -67,6 +67,7 @@ function updateDisplay() {
     read.classList.add("slider");
     read.setAttribute("type", "checkbox");
     read.setAttribute("name", "read");
+    read.addEventListener("change", handleReadSliderChange);
     if (book.read) read.setAttribute("checked", true);
     bookCard.appendChild(read);
 
@@ -103,13 +104,10 @@ function handleFormSubmit(e) {
 }
 
 // TOGGLE READ FUNCTIONALITY
-const readSliders = document.querySelectorAll(".book > .slider");
-readSliders.forEach(slider => {
-  slider.addEventListener("change", handleReadSliderChange);
-});
-
 function handleReadSliderChange(e) {
   let bookIndex = e.target.parentNode.dataset.index;
+  console.log(myLibrary[bookIndex]);
   myLibrary[bookIndex].toggleRead();
+  console.log(myLibrary);
 }
 
