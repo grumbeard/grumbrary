@@ -41,8 +41,10 @@ function addBookToLibrary(book) {
   updateDisplay();
 }
 
-function removeBookFromLibrary(book) {
+function removeBookFromLibrary(library, index) {
   // Remove book from library
+  delete library[index];
+  updateDisplay();
 }
 
 function updateDisplay() {
@@ -70,6 +72,13 @@ function updateDisplay() {
     read.addEventListener("change", handleReadSliderChange);
     if (book.read) read.setAttribute("checked", true);
     bookCard.appendChild(read);
+
+    // Add remove button
+    let remove = document.createElement("div");
+    remove.classList.add("remove-btn");
+    remove.innerText = "Remove"
+    remove.addEventListener("click", handleRemoveBtnClick);
+    bookCard.appendChild(remove);
 
     books.prepend(bookCard);
     index++;
@@ -103,11 +112,16 @@ function handleFormSubmit(e) {
   addBookToLibrary(book);
 }
 
+
 // TOGGLE READ FUNCTIONALITY
 function handleReadSliderChange(e) {
   let bookIndex = e.target.parentNode.dataset.index;
-  console.log(myLibrary[bookIndex]);
   myLibrary[bookIndex].toggleRead();
-  console.log(myLibrary);
 }
 
+
+// REMOVE BOOK FUNCTIONALITY
+function handleRemoveBtnClick(e) {
+  let bookIndex = e.target.parentNode.dataset.index;
+  removeBookFromLibrary(myLibrary, bookIndex);
+}
