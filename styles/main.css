@@ -1,3 +1,196 @@
-.hide {
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+/* SET BASIC LAYOUT */
+#form-container, #books-container, #add-btn-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+body {
+  font-family: 'Roboto Mono', monospace;
+}
+
+
+/* ADD BOOK FORM */
+#form-container > .hide {
   display: none;
+}
+
+#add-form {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
+#add-form label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5em;
+}
+
+#add-form label > p {
+  margin: 0;
+  padding: 0 0.5em;
+}
+
+#add-form input {
+  display: inline-block;
+  flex: 1;
+  padding: 0.5em;
+  margin: 1em 0.5em;
+}
+
+#add-form input[type=text], #add-form input[type=number] {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  margin: 0.5em 0.5em;
+}
+
+.toggle-text {
+  display: inline-block;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-left: 1em;
+}
+
+#add-form input[type=submit] {
+  margin-top: 2em;
+  padding: 1em;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: rgba(18, 244, 149, 0.4);
+  color: rgba(20, 186, 116, 0.8);
+}
+
+#add-form input[type=submit]:hover {
+  background-color: rgba(29, 232, 147, 0.6);
+  color: white;
+}
+
+
+/* BOOKS */
+
+#books {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
+
+.book {
+  display: inline-block;
+  margin: 1em;
+  padding: 50px;
+  width: 100%;
+  border: 1px solid pink;
+  border-radius: 20px;
+  position: relative;
+}
+
+.title {
+  font-size: 2em;
+  margin: 0px auto;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 3em;
+  right: 50px;
+  width: 1.5em;
+  height: 1.5em;
+  background-image: url('../images/delete.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  transform: scale(1.5);
+  filter: invert(0.8) sepia(0.5) saturate(5) hue-rotate(300deg);
+}
+
+.slider-body {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* -- Hide default checkbox visual */
+.slider-body input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider-toggle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: lightgray;
+  border-radius: 34px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.slider-toggle:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  top: 4px;
+  left: 4px;
+  background-color: grey;
+  border-radius: 50%;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider-body input:checked + .slider-toggle {
+  background-color: pink;
+}
+
+.slider-body input:checked + .slider-toggle:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+  background-color: rgba(18, 244, 149, 0.8);
+}
+
+.read-text {
+  display: inline-block;
+  font-size: 0.5em;
+  font-style: italic;
+  padding-left: 10px;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  color: rgba(20, 186, 116, 0.8);
+}
+
+
+/* ADD BOOK BUTTON */
+#add-btn {
+  margin: 0.3em 0.3em;
+  text-align: center;
+  font-size: 3em;
+  border-radius: 20px;
+  background-color: rgba(255, 192, 203, 0.4);
+  color: pink;
+  cursor: pointer;
+}
+
+#add-btn:hover {
+  background-color: rgb(255, 192, 203, 0.6);
+  color: white;
 }
