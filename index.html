@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Library</title>
-  <link rel="stylesheet" type="text/css" href="styles/main.css">
-</head>
-<body>
-  <header>
-    <h1>Grumbrary</h1>
-    <p id="subheading">The books you wish existed to satisfy every curiosity</p>
-  </header>
-  <main>
-    <div id="add-btn-container">
-      <div id="add-btn">+</div>
-    </div>
-    <div id="form-container">
-      <form id="add-form" class="hide" action="#">
-        <label for="title"><p>Title</p>
-          <input type="text" name="title" id="title" required>
-        </label>
-        <label for="author"><p>Author</p>
-          <input type="text" name="author" id="author" required>
-        </label>
-        <label for="pages"><p>Pages</p>
-          <input type="number" name="pages" id="pages" min="1">
-        </label>
-        <div class="toggle-container">
-          <label for="read" class="slider-body">
-            <input type="checkbox" name="read" id="read">
-            <span class="slider-toggle"></span>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grumbrary</title>
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+  </head>
+  <body>
+    <header>
+      <h1>Grumbrary</h1>
+      <p id="subheading">The books you wish existed to satisfy every curiosity</p>
+    </header>
+    <main>
+      <div id="add-btn-container">
+        <div id="add-btn">+</div>
+      </div>
+      <div id="form-container">
+        <form id="add-form" class="hide" action="#">
+          <label for="title"><p>Title</p>
+            <input type="text" name="title" id="title" required>
           </label>
-          <p class="toggle-text">I'm done reading this book</p>
-        </div>
-        <input type="submit" value="ADD BOOK" id="submit-form-btn">
-      </form>
-    </div>
-    <div id="books-container">
-      <ul id="books">
-      </ul>
-    </div>
-  </main>
-  <footer>
-    <p>Lightweight virtual library by <a href="https://github.com/grumbeard/library">@grumbeard</a></p>
-    <p class="text-note">Grumbrary makes use of local storage so your books don't disappear when you come back to this page.</p>
-    <p class="text-note"><em>(unless you mess with your cache)</em></p>
-    <a href="https://github.com/grumbeard">
-      <div class="btn">Visit GitHub Repository</div>
-    </a>
-  </footer>
-  <script src="javascript/main.js"></script>
-</body>
+          <label for="author"><p>Author</p>
+            <input type="text" name="author" id="author" required>
+          </label>
+          <label for="pages"><p>Pages</p>
+            <input type="number" name="pages" id="pages" min="1">
+          </label>
+          <div class="toggle-container">
+            <label for="read" class="slider-body">
+              <input type="checkbox" name="read" id="read">
+              <span class="slider-toggle"></span>
+            </label>
+            <p class="toggle-text">I'm done reading this book</p>
+          </div>
+          <input type="submit" value="ADD BOOK" id="submit-form-btn">
+        </form>
+      </div>
+      <div id="books-container">
+        <ul id="books">
+        </ul>
+      </div>
+    </main>
+    <footer>
+      <p>Lightweight virtual library by <a href="https://github.com/grumbeard/library">@grumbeard</a></p>
+      <p class="text-note">Grumbrary makes use of local storage so your books don't disappear when you come back to this page.</p>
+      <p class="text-note"><em>(unless you mess with your cache)</em></p>
+      <a href="https://github.com/grumbeard">
+        <div class="btn">Visit GitHub Repository</div>
+      </a>
+    </footer>
+    <script src="javascript/main.js"></script>
+  </body>
 </html>
