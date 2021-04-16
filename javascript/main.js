@@ -179,6 +179,7 @@ function seedLibrary() {
   addBookToLibrary(book3);
 }
 
+
 // CONVERT ARRAY OF OBJECTS INTO BOOKS
 // This is necessary as JSON Stringify method does not preserve inherited properties
 function makeBooks(bookArray) {
