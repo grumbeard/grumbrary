@@ -1,13 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
 /* SET BASIC LAYOUT */
-#form-container, #books-container, #add-btn-container {
+header, footer, #form-container, #books-container, #add-btn-container {
   max-width: 800px;
   margin: 0 auto;
 }
 
 body {
   font-family: 'Roboto Mono', monospace;
+}
+
+/* HEADER */
+h1 {
+  font-size: 2em;
+  padding: 0 0.5em;
+}
+
+#subheading {
+  padding: 1em;
 }
 
 
@@ -62,13 +72,16 @@ body {
   margin-top: 2em;
   padding: 1em;
   border: none;
+}
+
+#add-form input[type=submit], .btn {
   border-radius: 10px;
   cursor: pointer;
   background-color: rgba(18, 244, 149, 0.4);
   color: rgba(20, 186, 116, 0.8);
 }
 
-#add-form input[type=submit]:hover {
+#add-form input[type=submit]:hover, .btn:hover {
   background-color: rgba(29, 232, 147, 0.6);
   color: white;
 }
@@ -194,3 +207,38 @@ body {
   background-color: rgb(255, 192, 203, 0.6);
   color: white;
 }
+
+main {
+  padding-bottom: 2em;
+  border-bottom: 1px solid pink;
+}
+
+
+/* FOOTER */
+footer {
+  padding-bottom: 1em;
+}
+
+footer p {
+  padding: 0 1.4em;
+}
+
+footer p a {
+  text-decoration: none;
+  color: rgb(232, 146, 161);
+}
+
+footer p a:hover {
+  color: rgb(231, 113, 146);
+}
+
+.text-note {
+  font-size: 0.7em;
+  padding: 0 2em;
+}
+
+.btn {
+  margin: 1em;
+  text-align: center;
+}
+
