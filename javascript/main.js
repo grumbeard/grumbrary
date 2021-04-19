@@ -117,8 +117,17 @@ function handleFormSubmit(e) {
   book.pages = e.target.elements['pages'].value;
   book.read = e.target.elements['read'].checked;
 
-  // Add new book to library
   addBookToLibrary(book);
+  clearForm(e);
+  toggleDisplayForm();
+}
+
+// Clear Add Book form after book is submitted
+function clearForm(e) {
+  e.target.elements['title'].value = null;
+  e.target.elements['author'].value = null;
+  e.target.elements['pages'].value = null;
+  e.target.elements['read'].checked = false;
 }
 
 
