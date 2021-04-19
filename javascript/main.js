@@ -2,7 +2,7 @@ let myLibrary = [];
 
 // CHECK FOR EXISTING DATA IN LOCAL STORAGE
 if (!localStorage.getItem('localLibrary')
-    || !localStorage.getItem('localLibrary') == []) {
+    || localStorage.getItem('localLibrary') == "[]") {
   // If library not present, create library in local storage
   // 1 -- Seed library with books
   seedLibrary();
@@ -155,24 +155,37 @@ function handleRemoveBtnClick(e) {
 
 // -- SEED SOME BOOKS
 function seedLibrary() {
-  let book1 = Object.create(Book.prototype);
-  book1.title = "It's Not You, It's the Soil";
-  book1.author = "Jermi, Nate";
-  book1.pages = 600;
-  book1.read = false;
+  let book1 = Object.create(Book.prototype, {
+    title: {
+      value: "It's Not You, It's the Soil",
+      enumerable: true
+    },
+    author: {
+      value: "Jermi, Nate",
+      enumerable: true
+    },
+    pages: {
+      value: 600,
+      enumerable: true
+    },
+    read: {
+      value: false,
+      enumerable: true
+    }
+  });
 
-  let book2 = Object.create(Book.prototype);
-  book2.title = "The Square Orange Curtain";
-  book2.author = "Ghravati, Pooles";
-  book2.pages = 51;
-  book2.read = false;
+  let book2 = new Book(
+    "The Square Orange Curtain",
+    "Ghravati, Pooles",
+    51,
+    false
+  );
 
   let book3 = Object.create(Book.prototype);
   book3.title = "Why, The Rain Itches";
   book3.author = "Multiple Authors";
   book3.pages = 5510;
   book3.read = true;
-
 
   addBookToLibrary(book1);
   addBookToLibrary(book2);
