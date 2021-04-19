@@ -110,6 +110,7 @@ form.addEventListener("submit", handleFormSubmit);
 function toggleDisplayForm() {
   // Display form
   form.classList.toggle("hide");
+  addButton.innerText == "+" ? addButton.innerText = "\u2715" : addButton.innerText = "+";
 }
 
 function handleFormSubmit(e) {
