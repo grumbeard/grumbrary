@@ -33,6 +33,10 @@ Book.prototype.toggleRead = function () {
   this.read = !this.read;
 }
 
+Book.prototype.remove = function () {
+  myLibrary.splice(this.index, 1);
+}
+
 
 // FEATURES
 function addBookToLibrary(book) {
@@ -56,6 +60,7 @@ function updateDisplay() {
     let bookCard = document.createElement("div");
     bookCard.classList.add("book");
     bookCard.setAttribute("data-index", index);
+    book.index = index;
 
     // Add book details
     let title = "<p class='title'>" + book.title + "</p>"
@@ -149,16 +154,12 @@ function handleReadSliderChange(e) {
 
 
 // -- REMOVE BOOK FUNCTIONALITY
-function removeBookFromLibrary(library, index) {
-  // Remove book from library
-  library.splice(index, 1);
-  saveToLocalLibrary();
-  updateDisplay();
-}
-
 function handleRemoveBtnClick(e) {
   let bookIndex = e.target.parentNode.dataset.index;
-  removeBookFromLibrary(myLibrary, bookIndex);
+  // Remove book from library
+  myLibrary.find(book => book.index == bookIndex).remove();
+  saveToLocalLibrary();
+  updateDisplay();
 }
 
 
