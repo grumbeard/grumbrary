@@ -1,3 +1,23 @@
+// CONSTRUCTORS
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+}
+
+Book.prototype.toggleRead = function () {
+    this.read = !this.read;
+  }
+
+Book.prototype.remove = function () {
+    myLibrary.splice(this.index, 1);
+  }
+
+
+// BUILD LIBRARY
 let myLibrary = [];
 
 // CHECK FOR EXISTING DATA IN LOCAL STORAGE
@@ -18,24 +38,6 @@ myLibrary = makeBooks(myLibrary);
 
 // Display books in library
 updateDisplay();
-
-
-// CONSTRUCTORS
-function Book(title, author, pages, read) {
-  // Book constructor
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-}
-
-Book.prototype.toggleRead = function () {
-  this.read = !this.read;
-}
-
-Book.prototype.remove = function () {
-  myLibrary.splice(this.index, 1);
-}
 
 
 // FEATURES
@@ -209,7 +211,7 @@ function seedLibrary() {
 function makeBooks(bookArray) {
   let newArray = [];
   bookArray.forEach(book => {
-    let newBook = Object.create(Book.prototype);
+    let newBook = new Book();
     for (attribute in book) {
       newBook[attribute] = book[attribute];
     }
